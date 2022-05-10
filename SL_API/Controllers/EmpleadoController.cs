@@ -67,7 +67,7 @@ namespace SL_API.Controllers
 
         // DELETE: api/Empleado/5
         [HttpGet]
-        [Route("api/Empleado/{IdEmpleado}")]
+        [Route("api/Empleado/Delete/{IdEmpleado}")]
         public IHttpActionResult Delete(int IdEmpleado)
         {
             ML.Result result = BL.Empleado.Delete(IdEmpleado);

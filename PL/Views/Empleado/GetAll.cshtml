@@ -29,7 +29,8 @@
 
         </div>
         <div class="col-md-1" style="padding-left:100px">
-            @Html.ActionLink("Agregar", "Form", "Empleado", htmlAttributes: new { @class = "btn btn-success" })
+            <button type="button" class="btn btn-success" id="btnAdd" onclick="Modal()">Agregar</button>
+            @*@Html.ActionLink("Agregar", "Form", "Empleado", htmlAttributes: new { @class = "btn btn-success" })*@
         </div>
     </div>
 
@@ -67,28 +68,69 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtIdEmpleado" placeholder="IdEmpleado" disabled="disabled" />
+                        <input type="text" class="form-control" id="txtIdEmpleadoUpdate" placeholder="IdEmpleado" disabled="disabled" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtNumeroNomina" placeholder="NumeroNomina" />
+                        <input type="text" class="form-control" id="txtNumeroNominaUpdate" placeholder="NumeroNomina" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" />
+                        <input type="text" class="form-control" id="txtNombreUpdate" placeholder="Nombre" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="ApellidoPaterno" />
+                        <input type="text" class="form-control" id="txtApellidoPaternoUpdate" placeholder="ApellidoPaterno" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="ApellidoMaterno" />
+                        <input type="text" class="form-control" id="txtApellidoMaternoUpdate" placeholder="ApellidoMaterno" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="txtIdEstado" placeholder="IdEstado" />
+                        @*<input type="text" class="form-control" id="txtIdEstado" placeholder="IdEstado" />*@
+                        <select id="ddlEstadoUpdate" class="form-control"></select>
                     </div>
                 </form>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn glyphicon glyphicon-pencil" id="btnUpdate" onclick="Update()">Actualizar</button>
+                <button type="submit" class="btn glyphicon glyphicon-pencil" id="btnUpdate" onclick="Update()">Actualizar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Agregar empleado</h4>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtIdEmpleado" placeholder="IdEmpleado" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtNumeroNominaAdd" placeholder="NumeroNomina" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtNombreAdd" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtApellidoPaternoAdd" placeholder="ApellidoPaterno" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtApellidoMaternoAdd" placeholder="ApellidoMaterno" />
+                    </div>
+                    <div class="form-group">
+                        @*<input type="text" class="form-control" id="txtIdEstado" placeholder="IdEstado" />*@
+                        <select id="ddlEstado" class="form-control"></select>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn glyphicon glyphicon-book" id="btnAdd" onclick="Add()">Agregar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
