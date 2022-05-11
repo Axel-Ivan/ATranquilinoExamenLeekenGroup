@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () { //click
     GetAll();
-    /*EstadoGetAll();*/ 
+    EstadoGetAll(); 
 });
 
 function GetAll() {
@@ -13,7 +13,7 @@ function GetAll() {
                 var filas =
                     '<tr class="text-center">' +
                     /*'<td>' + '<a href="#" onclick="GetById(' + empleado.IdEmpleado + ')">' + '<span class="glyphicon glyphicon-edit"></span>' + '</a>' + '</td>'*/
-                    '<td>' + '<button class="btn btn-primary" onclick="GetById(' + empleado.IdEmpleado + ')">' + '<span class="glyphicon glyphicon-edit"></span>' + '</button>' + '</td>'
+                    '<td>' + '<button class="btn btn-primary" onclick="GetById(' + empleado.IdEmpleado + ')">' + '<span class="glyphicon glyphicon-edit"></span></button></td>'
                     + '<td>' + empleado.IdEmpleado + '</td>'
                     + '<td>' + empleado.NumeroNomina + '</td>'
                     + '<td>' + empleado.Nombre + " " + empleado.ApellidoPaterno + " " + empleado.ApellidoMaterno + '</td>'
@@ -32,7 +32,8 @@ function GetAll() {
 
 
 function EstadoGetAll() {
-    $("dllEstado").empty();
+    $("#dllEstado").empty();
+    $("#dllEstadoUpdate").empty();
     $.ajax({
         type: 'GET',
         url: 'http://localhost:2483/api/Estado',
@@ -40,6 +41,9 @@ function EstadoGetAll() {
             $("#ddlEstado").append('<option value="' + 0 + '">' + 'Seleccione una opción' + '</option>');
             $.each(result.Objects, function (i, estado) {
                 $("#ddlEstado").append('<option value="'
+                    + estado.IdEstado + '">'
+                    + estado.Nombre + '</option>')
+                $("#ddlEstadoUpdate").append('<option value="'
                     + estado.IdEstado + '">'
                     + estado.Nombre + '</option>');
             });
@@ -79,7 +83,7 @@ function Add() {
 function GetById(IdEmpleado) {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:14982/api/Empleado/' + IdEmpleado,
+        url: 'http://localhost:2483/api/Empleado/' + IdEmpleado,
         success: function (result) {
             $('#txtIdEmpleadoUpdate').val(result.Object.IdEmpleado);
             $('#txtNumeroNominaUpdate').val(result.Object.NumeroNomina);
@@ -100,11 +104,11 @@ function GetById(IdEmpleado) {
 function Update() {
 
     var empleado = {
-        IdSubCategoria: $('#txtIdEmpleadoUpdate').val(),
-        IdSubCategoria: $('#txtNumeroNominaUpdate').val(),
-        IdSubCategoria: $('#txtNombreUpdate').val(),
-        Nombre: $('#txtApellidoPaternoUpdate').val(),
-        Descripcion: $('#txtApellidoMaternoUpdate').val(),
+        IdEmpleado: $('#txtIdEmpleadoUpdate').val(),
+        NumeroNomina: $('#txtNumeroNominaUpdate').val(),
+        Nombre: $('#txtNombreUpdate').val(),
+        ApellidoPaterno: $('#txtApellidoPaternoUpdate').val(),
+        ApellidoMaterno: $('#txtApellidoMaternoUpdate').val(),
         Estado: {
             IdEstado: $('#ddlEstadoUpdate').val()
         }
@@ -112,7 +116,7 @@ function Update() {
 
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:14982/api/Empleado',
+        url: 'http://localhost:2483/api/Empleado/Update',
         datatype: 'json',
         data: empleado,
         success: function (result) {
@@ -120,17 +124,17 @@ function Update() {
             $('#ModalUpdate').modal('hide');
             GetAll();
             Console(respond);
-        },
-        error: function (result) {
-            alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
         }
+        //error: function (result) {
+        //    alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+        //}
     });
 
 };
 
 function Modal() {  
     var mostrar = $('#ModalAdd').modal('show');
-    EstadoGetAll();
+    //EstadoGetAll();
 }
 
 function Eliminar(IdEmpleado) {

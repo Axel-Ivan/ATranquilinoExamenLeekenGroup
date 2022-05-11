@@ -61,8 +61,20 @@ namespace SL_API.Controllers
         }
 
         // PUT: api/Empleado/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("api/Empleado/Update")]
+        public IHttpActionResult Update([FromBody] ML.Empleado empleado)
         {
+            ML.Result result = BL.Empleado.Update(empleado);
+
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         // DELETE: api/Empleado/5
