@@ -58,7 +58,7 @@ namespace BL
             {
                 using (DL.ATranquilinoLeenkenGroupEntities context = new DL.ATranquilinoLeenkenGroupEntities())
                 {
-                    var procedure = context.EmpleadoAdd(empleado.NumeroNomina, empleado.Nombre, empleado.ApellidoPaterno, empleado.ApellidoMaterno, empleado.Estado.IdEstado);
+                    var procedure = context.EmpleadoAdd(empleado.Nombre, empleado.ApellidoPaterno, empleado.ApellidoMaterno, empleado.Estado.IdEstado);
 
                     if(procedure >= 1)
                     {
@@ -126,7 +126,7 @@ namespace BL
             {
                 using (DL.ATranquilinoLeenkenGroupEntities context = new DL.ATranquilinoLeenkenGroupEntities())
                 {
-                    var procedure = context.EmpleadoUpdate(empleado.IdEmpleado, empleado.NumeroNomina, empleado.Nombre, empleado.ApellidoPaterno, empleado.ApellidoMaterno, empleado.Estado.IdEstado);
+                    var procedure = context.EmpleadoUpdate(empleado.IdEmpleado, empleado.Nombre, empleado.ApellidoPaterno, empleado.ApellidoMaterno, empleado.Estado.IdEstado);
 
                     if(procedure >= 1)
                     {

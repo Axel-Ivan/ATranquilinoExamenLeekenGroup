@@ -15,7 +15,7 @@ function Limpiar() {
 function Decidir() {
     var empleado = {
         IdEmpleado: $('#txtIdEmpleado').val(),
-        NumeroNomina: $('#txtNumeroNomina').val(),
+        /*NumeroNomina: $('#txtNumeroNomina').val(),*/
         Nombre: $('#txtNombre').val(),
         ApellidoPaterno: $('#txtApellidoPaterno').val(),
         ApellidoMaterno: $('#txtApellidoMaterno').val(),
@@ -120,7 +120,7 @@ function EstadoGetAll() {
 function Add() {
     var empleado = {
         IdEmpleado: 0,
-        NumeroNomina: $('#txtNumeroNomina').val(),
+        /*NumeroNomina: $('#txtNumeroNomina').val(),*/
         Nombre: $('#txtNombre').val(),
         ApellidoPaterno: $('#txtApellidoPaterno').val(),
         ApellidoMaterno: $('#txtApellidoMaterno').val(),
@@ -214,7 +214,7 @@ function GetById(IdEmpleado) {
 function Update() {
     var empleado = {
         IdEmpleado: $('#txtIdEmpleado').val(),
-        NumeroNomina: $('#txtNumeroNomina').val(),
+        /*NumeroNomina: $('#txtNumeroNomina').val(),*/
         Nombre: $('#txtNombre').val(),
         ApellidoPaterno: $('#txtApellidoPaterno').val(),
         ApellidoMaterno: $('#txtApellidoMaterno').val(),

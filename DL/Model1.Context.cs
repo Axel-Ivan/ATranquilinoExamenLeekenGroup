@@ -45,12 +45,8 @@ namespace DL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EmpleadosGetAll_Result>("EmpleadosGetAll");
         }
     
-        public virtual int EmpleadoAdd(string numeroNomina, string nombre, string apellidoPaterno, string apellidoMaterno, Nullable<int> idEstado)
+        public virtual int EmpleadoAdd(string nombre, string apellidoPaterno, string apellidoMaterno, Nullable<int> idEstado)
         {
-            var numeroNominaParameter = numeroNomina != null ?
-                new ObjectParameter("NumeroNomina", numeroNomina) :
-                new ObjectParameter("NumeroNomina", typeof(string));
-    
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
                 new ObjectParameter("Nombre", typeof(string));
@@ -67,7 +63,7 @@ namespace DL
                 new ObjectParameter("IdEstado", idEstado) :
                 new ObjectParameter("IdEstado", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpleadoAdd", numeroNominaParameter, nombreParameter, apellidoPaternoParameter, apellidoMaternoParameter, idEstadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpleadoAdd", nombreParameter, apellidoPaternoParameter, apellidoMaternoParameter, idEstadoParameter);
         }
     
         public virtual ObjectResult<EmpleadoGetById_Result> EmpleadoGetById(Nullable<int> idEmpleado)
@@ -88,15 +84,11 @@ namespace DL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpleadoDelete", idEmpleadoParameter);
         }
     
-        public virtual int EmpleadoUpdate(Nullable<int> idEmpleado, string numeroNomina, string nombre, string apellidoPaterno, string apellidoMaterno, Nullable<int> idEstado)
+        public virtual int EmpleadoUpdate(Nullable<int> idEmpleado, string nombre, string apellidoPaterno, string apellidoMaterno, Nullable<int> idEstado)
         {
             var idEmpleadoParameter = idEmpleado.HasValue ?
                 new ObjectParameter("IdEmpleado", idEmpleado) :
                 new ObjectParameter("IdEmpleado", typeof(int));
-    
-            var numeroNominaParameter = numeroNomina != null ?
-                new ObjectParameter("NumeroNomina", numeroNomina) :
-                new ObjectParameter("NumeroNomina", typeof(string));
     
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -114,7 +106,7 @@ namespace DL
                 new ObjectParameter("IdEstado", idEstado) :
                 new ObjectParameter("IdEstado", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpleadoUpdate", idEmpleadoParameter, numeroNominaParameter, nombreParameter, apellidoPaternoParameter, apellidoMaternoParameter, idEstadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpleadoUpdate", idEmpleadoParameter, nombreParameter, apellidoPaternoParameter, apellidoMaternoParameter, idEstadoParameter);
         }
     }
 }

@@ -36,7 +36,6 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="EmpleadoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NumeroNomina" Type="varchar" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
           <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
@@ -52,7 +51,6 @@
         <Function Name="EmpleadosGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="EmpleadoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpleado" Type="int" Mode="In" />
-          <Parameter Name="NumeroNomina" Type="varchar" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
           <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
@@ -114,7 +112,6 @@
           <FunctionImport Name="EstadoGetAll" ReturnType="Collection(ATranquilinoLeenkenGroupModel.EstadoGetAll_Result)" />
           <FunctionImport Name="EmpleadosGetAll" ReturnType="Collection(ATranquilinoLeenkenGroupModel.EmpleadosGetAll_Result)" />
           <FunctionImport Name="EmpleadoAdd">
-            <Parameter Name="NumeroNomina" Mode="In" Type="String" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
             <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
@@ -124,11 +121,10 @@
           <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EmpleadoDelete">
-            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+          <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EmpleadoUpdate">
             <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
-            <Parameter Name="NumeroNomina" Mode="In" Type="String" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
             <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
